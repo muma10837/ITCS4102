@@ -1,13 +1,7 @@
 import java.io.File
-import java.io.File.*
-import java.io.IOException
-import java.nio.file.Files
-import java.nio.file.Paths
-import java.nio.file.StandardOpenOption
-import java.util.*
 
 class BookDatabase(): LibraryDatabase {
-    override val database: MutableMap<String, Any?> = mutableMapOf<String, Any?>()
+    override val database: MutableMap<String, Any?> = mutableMapOf()
 
     override fun search(searchCategory: String, searchKey: String) {
         var book: Book
@@ -64,7 +58,7 @@ class BookDatabase(): LibraryDatabase {
         var key = key
         if(newItem) {
             database.forEach() {
-                if (it.equals(other = item as Book)) {
+                if ((item as Book).equalsBook(it.value as Book)) {
                     key = it.key
                     val book: Book = database[key] as Book
                     book.quanity++
@@ -76,7 +70,7 @@ class BookDatabase(): LibraryDatabase {
                 database[key] = item
             }
         } else {
-            database[key.toString()] = item
+            database[key] = item
         }
         if (newItem)
             backup(key = key)

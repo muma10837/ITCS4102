@@ -4,7 +4,7 @@ data class Book(val title: String, val author: String, val pubDate: String, var 
     override fun toString(): String =
         "\n$title|/$author|/$pubDate|/$deweyDecimalNumber"
 
-    fun equals(other: Book): Boolean {
+    fun equalsBook(other: Book): Boolean {
         return (this.title.decapitalize() == other.title.decapitalize()) && (this.author.decapitalize() == other.author.decapitalize())
                 && (this.pubDate.decapitalize() == other.pubDate.decapitalize())
     }
