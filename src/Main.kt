@@ -1,4 +1,5 @@
 import java.util.*
+import kotlin.system.exitProcess
 
 var mode: String? = "n"
 val database: BookDatabase = BookDatabase()
@@ -9,7 +10,7 @@ fun main(args: Array<String>) {
 }
 
 fun start() {
-    while(mode != "q" && mode != "Q") {
+    loop@ while(mode != "q" && mode != "Q") {
         println("Please choose the option you would like to do")
         println("1) Search for a book in the database")
         println("2) See a book description")
@@ -30,8 +31,14 @@ fun start() {
             "3" -> add()
             "4" -> borrow()
             "5"-> returnItem()
-            "q" -> println("You chose to quit")
-            "Q" -> println("You chose to quit")
+            "q" -> {
+                println("You chose to quit")
+                exitProcess(0)
+            }
+            "Q" -> {
+                println("You chose to quit")
+                exitProcess(0)
+            }
             "s" -> println("Stupid is as stupid does")
             else -> println("invalid choice")
         }
@@ -62,7 +69,6 @@ fun returnItem() {
     println("You have returned ${database.getBook(choice!!)}")
 }
 
-//need to add a loop till they enter a correct dewey number
 fun borrow() {
     var borrowed: Boolean = false
     var choice: String? = ""
@@ -115,17 +121,24 @@ fun search() {
     while(choice != "m" && choice != "b" && choice != "r") {
         println("To go to main menu press m, to borrow a book press b, to return a book press r, otherwise hit enter")
         choice = readLine()
-        println("Below are your search categories please choose a number or type the category exactly:")
-        for (item in SearchCategory.values())
-            println("${item.searchCode})   $item")
 
-        print("Please choose your search option: ")
-        val searchCategory: String? = readLine()
-
-        print("Please choose your search key: ")
-        val searchKey: String? = readLine()
+        when(choice) {
+            "m"-> start()
+            "b"-> borrow()
+            "r"-> returnItem()
+        }
 
         if(choice != "m" && choice != "b" && choice != "r") {
+            println("Below are your search categories please choose a number or type the category exactly:")
+            for (item in SearchCategory.values())
+                println("${item.searchCode})   $item")
+
+            print("Please choose your search option: ")
+            val searchCategory: String? = readLine()
+
+            print("Please choose your search key: ")
+            val searchKey: String? = readLine()
+
             database.search(searchCategory!!, searchKey!!)
         }
     }

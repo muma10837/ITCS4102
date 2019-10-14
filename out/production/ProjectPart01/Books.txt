@@ -2,3 +2,4 @@ some title|/some author|/some date|/000
 hmmmmm|/test|/2019|/71.33287242914702
 hmmmmm2|/test2|/20|/32.941063921498916
 hi this|/is a |/test|/0.0041
+some title|/some author|/some date|/000
