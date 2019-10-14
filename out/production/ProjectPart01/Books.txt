@@ -1,0 +1,4 @@
+some title|/some author|/some date|/000q
+hmmmmm|/test|/2019|/71.33287242914702
+hmmmmm2|/test2|/20|/32.941063921498916
+hi this|/is a |/test|/0.00414
