@@ -1,3 +1,21 @@
+/**
+ * The main file has the vast majority of the IO and control structures. For IO you have readLine and println().
+ * readLine reads in a String? variable and println() prints to the console. String? is a String or null. This is a really
+ * cool thing that Kotlin has no variable can be null without a ? this helps control those pesky null pointers that pop up all
+ * the time in Java. Then something even better is !! which tells the JVM that this variable is impossible to be NULL. Doing
+ * things this way helps you to know what can be NULL test it then pass it off as a non NULL variable. So you do not have to
+ * worry about it anymore. Then for control structures we have when which is similar to a switch statement. If, else if, else
+ * which is self explanatory. We also have a while, do while, for loops in here. For loops work really well in Kotlin.
+ * They let you easily parse through anything and use the parts of it as your value to end the for loop. This helps readability
+ * as you can easily see what you are increasing by and helps to cut down on the clutter you would normally need to do to
+ * get the same effect. Another cool thing with Kotlin is that Kotlin can use anything
+ * it could want from the java library. Kotlin has all the benefits of easier readability and stronger NULL safety with all the
+ * benefits java can give. Another interesting data structure is the ability to name loops and to be able to break or continue a
+ * loop using that name. The final interesting data structure I wish to talk about here is the ability to name parameters. This
+ * allows you to put the parameters in whatever order you wish to just throw the name of the parameter and you are good to go.
+ * This not only helps in readability but also helps you to not mess up order of parameters. The rest i will be talking of in BookDatabase
+ */
+
 import java.util.*
 import kotlin.system.exitProcess
 

@@ -1,3 +1,11 @@
+/**
+ * This program is made based off a interface and works similar to java. Kotlin also has open classes which are similar
+ * to java's parent and child classes. Kotlin does not make you make getters and setters they are built into the classes
+ * this helps to cut down code as getters and setters can clutter down a program. Another really cool data structure is
+ * the forEach that most Collections use. This lets you literally parse through each item in the Collection and use each
+ * entry in the Collection. This helps to cut down clutter and makes it easier to read as you can see below. Something that
+ * would have taken a ton of lines for each one took all of what five lines.
+ */
 import java.io.File
 
 class BookDatabase(): LibraryDatabase {
@@ -105,7 +113,7 @@ class BookDatabase(): LibraryDatabase {
 
         File(file).forEachLine {
             val parameterList = it.split("|/")
-            val book: Book = Book(title = parameterList[0], author = parameterList[1], pubDate = parameterList[2],
+            val book= Book(title = parameterList[0], author = parameterList[1], pubDate = parameterList[2],
                 deweyDecimalNumber = parameterList[3])
             if(database.containsKey(book.deweyDecimalNumber))
                 multipleItems(book.deweyDecimalNumber)
